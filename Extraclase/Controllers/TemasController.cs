@@ -19,7 +19,8 @@ namespace Extraclase.Controllers
         [Route("temas/{name:alpha}")]
         public ActionResult Index()   
         {
-            var usuario = Session["data"] as string;
+            //var usuario = Session["data"] as string;
+            var usuario = TempData["data"] as string;
 
             if (usuario == null)
             {
@@ -27,7 +28,7 @@ namespace Extraclase.Controllers
             }
             else
             {
-                Session.Remove("data");
+                //Session.Remove("data");
                 return View(db.Temas.ToList());             
             }        
         }
