@@ -17,7 +17,24 @@ namespace Extraclase.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            return View(db.Usuarios.ToList());
+            var usuario = Session["data"] as string;
+            //var usuario = TempData["data"] as string;
+
+            if (usuario == null)
+            {
+                return RedirectToAction("Denegado_permiso");
+            }
+            else
+            {
+                //Session.Remove("data"); 
+                return View(db.Usuarios.ToList());
+            }
+        }
+
+        public ActionResult Denegado_permiso()
+        {
+            ViewBag.Message = "does not have permissions!!";
+            return View();
         }
 
 
