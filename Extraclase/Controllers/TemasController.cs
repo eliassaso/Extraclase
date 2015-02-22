@@ -22,14 +22,15 @@ namespace Extraclase.Controllers
             var usuario = Session["data"] as string;
             //var usuario = TempData["data"] as string;
 
-            if (usuario == null)
+            if (usuario == "x")
+            {
+                //Session.Remove("data"); 
+                return View(db.Temas.ToList());
+                
+            }
+            else 
             {
                 return RedirectToAction("Denegado_permiso");
-            }
-            else
-            {
-                //Session.Remove("data");
-                return View(db.Temas.ToList());             
             }        
         }
 
