@@ -17,11 +17,25 @@ namespace Extraclase.Controllers
         // GET: Temas
         [HttpGet]
         [Route("temas/{name:alpha}")]
-        public ActionResult Index(string user)
+        public ActionResult Index()   
         {
+            var usuario = Session["data"] as string;
 
+            if (usuario == null)
+            {
+                return RedirectToAction("Denegado_permiso");
+            }
+            else
+            {
+                Session.Remove("data");
+                return View(db.Temas.ToList());             
+            }        
+        }
 
-            return View(db.Temas.ToList());
+        public ActionResult Denegado_permiso()
+        {
+            ViewBag.Message = "does not have permissions!!";
+            return View();
         }
 
         // GET: Temas/Details/5
