@@ -6,28 +6,30 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true, "Login failed. Check your login details.");
-    <div class="jumbotron">
-        <fieldset>
-            <legend>Login</legend>
-            <div class="editor-label">
-                @Html.LabelFor(u => u.Username)
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(u => u.Username)
-                @Html.ValidationMessageFor(u => u.Username)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(u => u.Password)
-            </div>
-            <div class="editor-field" >
-                @Html.PasswordFor(u => u.Password)
-                @Html.ValidationMessageFor(u => u.Password)
-            </div>
-            <div class="editor-label">
-                <h2>@ViewBag.Message</h2>
-                <br />
-            </div>
-            <input type="submit" class="btn btn-primary" value="Log In" />
-        </fieldset>
+    <div class="row">
+        <div class="col-lg-12">
+            <fieldset>
+                <legend>Login</legend>
+                <div class="editor-label">
+                    @Html.LabelFor(u => u.Username)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(u => u.Username)
+                    @Html.ValidationMessageFor(u => u.Username)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(u => u.Password)
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(u => u.Password)
+                    @Html.ValidationMessageFor(u => u.Password)
+                </div>
+                <div class="editor-label">
+                    <h2>@ViewBag.Message</h2>
+                    <br />
+                </div>
+                <input type="submit" class="btn btn-primary" value="Log In" />
+            </fieldset>
+        </div>
     </div>
 }

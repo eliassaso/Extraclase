@@ -18,6 +18,12 @@ namespace Extraclase
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Login", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                    name: "IndexTemas",
+                    url: "{controller}/Index/{name}",
+                    defaults: new { controller = "Temas", action = "Index" }
+                );
         }
     }
 }

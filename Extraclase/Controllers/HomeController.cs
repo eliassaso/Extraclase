@@ -36,7 +36,7 @@ namespace Extraclase.Controllers
                 {
                     if (usuario.Username == user.Username && usuario.Password == user.Password)
                     {
-                        return RedirectToAction("Index", "Temas");
+                        return RedirectToAction("Index", "Temas", new { MiParametro = usuario.Username });
                         //break;
                         //return View(user);
                     }

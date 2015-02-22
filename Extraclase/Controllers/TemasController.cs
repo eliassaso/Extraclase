@@ -15,8 +15,12 @@ namespace Extraclase.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Temas
-        public ActionResult Index()
+        [HttpGet]
+        [Route("temas/{name:alpha}")]
+        public ActionResult Index(string user)
         {
+
+
             return View(db.Temas.ToList());
         }
 
