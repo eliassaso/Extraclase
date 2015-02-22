@@ -29,5 +29,9 @@ namespace Extraclase.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Extraclase.Models.Temas> Temas { get; set; }
+
+        public System.Data.Entity.DbSet<Extraclase.Models.Usuarios> Usuarios { get; set; }
     }
 }

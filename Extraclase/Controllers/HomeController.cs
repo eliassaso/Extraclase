@@ -12,6 +12,11 @@ namespace Extraclase.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {
