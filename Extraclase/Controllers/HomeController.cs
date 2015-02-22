@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
-
+using Extraclase.Models;
 namespace Extraclase.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -15,6 +20,29 @@ namespace Extraclase.Controllers
         [HttpGet]
         public ActionResult Login()
         {
+            ViewBag.Message = "";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(Models.Usuarios user)
+        {
+            if (ModelState.IsValid)
+            {
+                List<Usuarios> usuarios = db.Usuarios.ToList();
+
+                //for (int i = 1; i <= usuarios; i++);
+                foreach (var usuario in usuarios)
+                {
+                    if (usuario.Username == user.Username && usuario.Password == user.Password)
+                    {
+                        return RedirectToAction("Index", "Temas");
+                        //break;
+                        //return View(user);
+                    }
+                }             
+            }
+            ViewBag.Message = "Incorrect";
             return View();
         }
 
