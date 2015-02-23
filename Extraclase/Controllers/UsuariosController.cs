@@ -17,16 +17,12 @@ namespace Extraclase.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            var usuario = Session["data"] as string;
-            //var usuario = TempData["data"] as string;
-
-            if (usuario == "x")
+            if (validar_usuario() == true)
             {
                 //Session.Remove("data"); 
                 return View(db.Usuarios.ToList());
-                
             }
-            else 
+            else
             {
                 return RedirectToAction("Denegado_permiso");
             }
@@ -42,22 +38,36 @@ namespace Extraclase.Controllers
         // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if (validar_usuario() == true)
+            { 
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Usuarios usuarios = db.Usuarios.Find(id);
+                if (usuarios == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(usuarios);
             }
-            Usuarios usuarios = db.Usuarios.Find(id);
-            if (usuarios == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Denegado_permiso");
             }
-            return View(usuarios);
         }
 
         // GET: Usuarios/Create
         public ActionResult Create()
         {
-            return View();
+            if (validar_usuario() == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Denegado_permiso");
+            }
         }
 
         // POST: Usuarios/Create
@@ -80,16 +90,23 @@ namespace Extraclase.Controllers
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if (validar_usuario() == true)
+            { 
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Usuarios usuarios = db.Usuarios.Find(id);
+                if (usuarios == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(usuarios);
             }
-            Usuarios usuarios = db.Usuarios.Find(id);
-            if (usuarios == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Denegado_permiso");
             }
-            return View(usuarios);
         }
 
         // POST: Usuarios/Edit/5
@@ -111,16 +128,23 @@ namespace Extraclase.Controllers
         // GET: Usuarios/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (validar_usuario() == true)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Usuarios usuarios = db.Usuarios.Find(id);
+                if (usuarios == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(usuarios);
             }
-            Usuarios usuarios = db.Usuarios.Find(id);
-            if (usuarios == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Denegado_permiso");
             }
-            return View(usuarios);
         }
 
         // POST: Usuarios/Delete/5
@@ -141,6 +165,21 @@ namespace Extraclase.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public bool validar_usuario()
+        {
+            var usuario = Session["data"] as string;
+            //var usuario = TempData["data"] as string;
+            if (usuario == "x")
+            {
+                //Session.Remove("data"); 
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

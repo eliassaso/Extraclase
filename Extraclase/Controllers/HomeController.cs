@@ -37,9 +37,9 @@ namespace Extraclase.Controllers
                     if (usuario.Username == user.Username && usuario.Password == user.Password)
                     {
                         Session["data"] = usuario.Admin;
-                        //TempData["data"] = usuario.Username;
+                        //TempData["data"] = usuario.Username;//solo hace una funcion y se desloguea
                         return RedirectToAction("Index", "Temas");
-                        //break;
+                        //return RedirectToAction("Seleccion", "Temas");
                         //return View(user);
                     }
                 }             

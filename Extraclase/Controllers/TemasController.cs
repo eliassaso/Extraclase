@@ -19,14 +19,14 @@ namespace Extraclase.Controllers
         [Route("temas/{name:alpha}")]
         public ActionResult Index()   
         {
-            var usuario = Session["data"] as string;
+            /*var usuario = Session["data"] as string;
             //var usuario = TempData["data"] as string;
+            if (usuario == "x")*/
 
-            if (usuario == "x")
+            if(validar_usuario() == true)
             {
                 //Session.Remove("data"); 
-                return View(db.Temas.ToList());
-                
+                return View(db.Temas.ToList());              
             }
             else 
             {
@@ -40,25 +40,52 @@ namespace Extraclase.Controllers
             return View();
         }
 
+        public ActionResult Seleccion()
+        {
+            if (validar_usuario() == true)
+            {
+                //Session.Remove("data"); 
+                return View(db.Temas.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Denegado_permiso");
+            }
+        }
+
         // GET: Temas/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if (validar_usuario() == true)
+            { 
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Temas temas = db.Temas.Find(id);
+                if (temas == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(temas);
             }
-            Temas temas = db.Temas.Find(id);
-            if (temas == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Denegado_permiso");
             }
-            return View(temas);
         }
 
         // GET: Temas/Create
         public ActionResult Create()
         {
-            return View();
+            if (validar_usuario() == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Denegado_permiso");
+            }
         }
 
         // POST: Temas/Create
@@ -81,16 +108,23 @@ namespace Extraclase.Controllers
         // GET: Temas/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if (validar_usuario() == true)
+            {     
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Temas temas = db.Temas.Find(id);
+                if (temas == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(temas);
             }
-            Temas temas = db.Temas.Find(id);
-            if (temas == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Denegado_permiso");
             }
-            return View(temas);
         }
 
         // POST: Temas/Edit/5
@@ -112,16 +146,23 @@ namespace Extraclase.Controllers
         // GET: Temas/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if (validar_usuario() == true)
+            { 
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Temas temas = db.Temas.Find(id);
+                if (temas == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(temas);
             }
-            Temas temas = db.Temas.Find(id);
-            if (temas == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Denegado_permiso");
             }
-            return View(temas);
         }
 
         // POST: Temas/Delete/5
@@ -142,6 +183,21 @@ namespace Extraclase.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public bool validar_usuario()
+        {
+            var usuario = Session["data"] as string;
+            //var usuario = TempData["data"] as string;
+            if (usuario == "x")
+            {
+                //Session.Remove("data"); 
+                return true;
+            }
+            else
+            {
+                return false;
+            }        
         }
     }
 }

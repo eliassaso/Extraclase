@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Extraclase.Models.Temas>
+
+@{
+    ViewBag.Title = "Seleccion";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Materia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tema)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Materia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tema)
+            </td>
+        </tr>
+    }
+
+</table>
+
