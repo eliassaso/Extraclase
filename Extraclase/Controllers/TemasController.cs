@@ -42,7 +42,9 @@ namespace Extraclase.Controllers
 
         public ActionResult Seleccion()
         {
-            if (validar_usuario() == true)
+            var usuario = Session["data"] as string;
+
+            if (usuario != null)
             {
                 return View(db.Temas.ToList());
             }
@@ -188,7 +190,7 @@ namespace Extraclase.Controllers
         {
             var usuario = Session["data"] as string;
             //var usuario = TempData["data"] as string;
-            if (usuario == "x")
+            if (usuario == "s")
             {
                 //Session.Remove("data"); 
                 return true;
