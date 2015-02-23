@@ -44,7 +44,6 @@ namespace Extraclase.Controllers
         {
             if (validar_usuario() == true)
             {
-                //Session.Remove("data"); 
                 return View(db.Temas.ToList());
             }
             else

@@ -38,8 +38,8 @@ namespace Extraclase.Controllers
                     {
                         Session["data"] = usuario.Admin;
                         //TempData["data"] = usuario.Username;//solo hace una funcion y se desloguea
-                        return RedirectToAction("Index", "Temas");
-                        //return RedirectToAction("Seleccion", "Temas");
+                        //return RedirectToAction("Index", "Temas");
+                        return RedirectToAction("Seleccion", "Temas");
                         //return View(user);
                     }
                 }             
