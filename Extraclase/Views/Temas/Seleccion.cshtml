@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Seleccion";
+    var listItems = ViewBag.list;
 }
 
 
@@ -13,26 +14,39 @@
         <th>
             @Html.DisplayNameFor(model => model.Grado)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tema)
-        </th>
-        <th></th>
     </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Materia)
+                @Html.DropDownList("Exemplo", new SelectList(ViewBag.list, "Materia"))
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Grado)
+                @Html.DropDownList("Exemplo", new SelectList(ViewBag.grados, "grados"))
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tema)
-            </td>
-        </tr>
-    }
-
 </table>
 
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Login failed. Check your login details.");
+    <div class="row">
+        <div class="col-lg-12">
+            <fieldset>
+                <legend>Nivel</legend>
+                <div class="editor-label">
+                    @Html.DisplayNameFor(model => model.Grado)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("Exemplo", new SelectList(ViewBag.grados, "grados"))
+                </div>
+                <br />
+                <div class="editor-label">
+                    @Html.DisplayNameFor(model => model.Materia)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("Exemplo", new SelectList(ViewBag.list, "Materia"))
+                </div>
+                <br />
+                <input type="submit" class="btn btn-primary" value="Aceptar" />
+            </fieldset>
+        </div>
+    </div>
+}

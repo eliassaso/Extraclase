@@ -40,18 +40,37 @@ namespace Extraclase.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Seleccion()
         {
             var usuario = Session["data"] as string;
 
             if (usuario != null)
-            {
+            { 
+                // @Html.DropDownList("Exemplo",new SelectList(listItems,"Value","Text"))
+                //List<Usuario> gabrieles = contexto.Usuarios.Where(u => u.nombre == "Gabriel");
+                //var grados = db.Temas.Select(u => u.Grado);
+                List<string> grados = new List<string>{"1","2","3","4","5","6"};
+
+                var materia = db.Temas.Select(u => u.Materia);
+                ViewBag.list = materia; //db.Temas.ToList();
+                ViewBag.grados = grados;
                 return View(db.Temas.ToList());
             }
             else
             {
                 return RedirectToAction("Denegado_permiso");
             }
+        }
+        [HttpPost]
+        public ActionResult Seleccion(Models.Temas tema)
+        {
+            if (ModelState.IsValid)
+            {
+                
+            }
+            ViewBag.Message = "Incorrect";
+            return View();
         }
 
         // GET: Temas/Details/5

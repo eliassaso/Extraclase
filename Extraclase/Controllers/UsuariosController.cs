@@ -171,7 +171,7 @@ namespace Extraclase.Controllers
         {
             var usuario = Session["data"] as string;
             //var usuario = TempData["data"] as string;
-            if (usuario == "x")
+            if (usuario == "s")
             {
                 //Session.Remove("data"); 
                 return true;
