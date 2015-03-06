@@ -55,3 +55,4 @@ c:\users\elias\documents\visual studio 2013\Projects\Extraclase\Extraclase\obj\D
 c:\users\elias\documents\visual studio 2013\Projects\Extraclase\Extraclase\obj\Debug\Extraclase.pdb
 C:\Users\Elias\documents\visual studio 2013\Projects\Extraclase\Extraclase\obj\Debug\Extraclase.Migrations.InitialCreate.resources
 C:\Users\Elias\documents\visual studio 2013\Projects\Extraclase\Extraclase\obj\Debug\Extraclase.csproj.GenerateResource.Cache
+C:\Users\Elias\Documents\Visual Studio 2013\Projects\Extraclase\Extraclase\obj\Debug\Extraclase.Migrations.modifyThemes.resources

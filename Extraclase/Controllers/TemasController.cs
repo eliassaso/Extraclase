@@ -50,10 +50,11 @@ namespace Extraclase.Controllers
                 // @Html.DropDownList("Exemplo",new SelectList(listItems,"Value","Text"))
                 //List<Usuario> gabrieles = contexto.Usuarios.Where(u => u.nombre == "Gabriel");
                 //var grados = db.Temas.Select(u => u.Grado);
-                List<string> grados = new List<string>{"1","2","3","4","5","6"};
+                var grados = new List<string>{"1","2","3","4","5","6"};
 
-                var materia = db.Temas.Select(u => u.Materia);
-                ViewBag.list = materia; //db.Temas.ToList();
+                //var materia = db.Temas.Select(u => u.Materia);
+                //var materia = db.Temas.ToList();
+                //ViewBag.list = materia; //db.Temas.ToList();
                 ViewBag.grados = grados;
                 return View(db.Temas.ToList());
             }
@@ -62,7 +63,20 @@ namespace Extraclase.Controllers
                 return RedirectToAction("Denegado_permiso");
             }
         }
+
         [HttpPost]
+        public ActionResult Seleccion(string grado)
+        {
+            grado = Request["Grado"];
+            if (grado != null)
+            {
+
+            }
+            ViewBag.Message = "Incorrect";
+            return View();
+        }
+
+        /*[HttpPost]
         public ActionResult Seleccion(Models.Temas tema)
         {
             if (ModelState.IsValid)
@@ -71,7 +85,7 @@ namespace Extraclase.Controllers
             }
             ViewBag.Message = "Incorrect";
             return View();
-        }
+        }*/
 
         // GET: Temas/Details/5
         public ActionResult Details(int? id)
