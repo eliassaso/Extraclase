@@ -47,6 +47,14 @@ namespace Extraclase.Controllers
 
             if (usuario != null)
             { 
+                  /*x=> x.Lists.Include(l => l.Title)
+                 .Where(l => l.Title != String.Empty && l.InternalName != String.Empty)
+                  or
+
+                  x=> x.Lists.Include(l => l.Title)
+                 .Where(l => l.Title != String.Empty)
+                 .Where(l => l.InternalName != String.Empty)*/
+
                 // @Html.DropDownList("Exemplo",new SelectList(listItems,"Value","Text"))
                 //List<Usuario> gabrieles = contexto.Usuarios.Where(u => u.nombre == "Gabriel");
                 //var grados = db.Temas.Select(u => u.Grado);
@@ -56,6 +64,7 @@ namespace Extraclase.Controllers
                 //var materia = db.Temas.ToList();
                 //ViewBag.list = materia; //db.Temas.ToList();
                 ViewBag.grados = grados;
+                ViewBag.Message = "";
                 return View(db.Temas.ToList());
             }
             else
@@ -67,13 +76,27 @@ namespace Extraclase.Controllers
         [HttpPost]
         public ActionResult Seleccion(string grado, string materia)
         {
-            grado = Request["Grado"];
-            if (grado != null)
-            {
+            var usuario = Session["data"] as string;
 
+            if (usuario != null)
+            {
+                grado = Request["Grado"];//otra opcion para recibir post;
+                if (grado == "" || materia == "")
+                {
+                    ViewBag.Message = "Incorrect";
+                    return View();
+                }
+                else
+                {
+                    List<Temas> temas = db.Temas.Where(u => u.Grado == grado).Where(u => u.Materia == materia).ToList();
+                    ViewBag.Message = "Correct";
+                    return View();
+                }
             }
-            ViewBag.Message = "Incorrect";
-            return View();
+            else
+            {
+                return RedirectToAction("Denegado_permiso");
+            }
         }
 
         /*[HttpPost]

@@ -13,7 +13,6 @@
         <div class="col-lg-12">
             <fieldset>
                 <legend>Seleccionar nivel</legend>
-                <br />
                 <div class="editor-label">
                     <h2>Grado</h2>
                 </div>
@@ -37,16 +36,19 @@
                     @Html.DropDownList("Materia",
                         new[]
                         {
-                            new SelectListItem{ Value = "espanol", Text = "Español" },
-                            new SelectListItem{ Value = "ciencias", Text = "Ciencias" },
-                            new SelectListItem{ Value = "matematicas", Text = "Matemáticas" },
-                            new SelectListItem{ Value = "sociales", Text = "Estudios Sociales" },
+                            new SelectListItem{ Value = "Español", Text = "Español" },
+                            new SelectListItem{ Value = "Ciencias", Text = "Ciencias" },
+                            new SelectListItem{ Value = "Matemáticas", Text = "Matemáticas" },
+                            new SelectListItem{ Value = "Estudios Sociales", Text = "Estudios Sociales" },
                         },
                     "escoger materia", new { @class = "form-control" })
                 </div>
                 <br />
+                <h2>@ViewBag.Message</h2>
+                <br />
                 <input type="submit" class="btn btn-primary" value="Aceptar" />
             </fieldset>
+            <img src="~/fonts/Software-Solutions.png" alt="Sample Image" width="300px" />
         </div>
     </div>
 }
