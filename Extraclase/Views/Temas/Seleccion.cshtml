@@ -12,20 +12,12 @@
     <div class="row">
         <div class="col-lg-12">
             <fieldset>
-                <legend>Nivel</legend>
-                <div class="editor-label">
-                   
-                </div>
-                <div class="editor-field">         
- 
-
-                </div>
+                <legend>Seleccionar nivel</legend>
                 <br />
                 <div class="editor-label">
-                    <h1>GRADOS</h1>
+                    <h2>Grado</h2>
                 </div>
                 <div class="editor-field">
-
                    @Html.DropDownList("Grado",
                         new[]
                         {
@@ -34,11 +26,23 @@
                             new SelectListItem{ Value = "3", Text = "3" },
                             new SelectListItem{ Value = "4", Text = "4" },
                             new SelectListItem{ Value = "5", Text = "5" },
-                            new SelectListItem{ Value = "6", Text = "6" },
-                                        
+                            new SelectListItem{ Value = "6", Text = "6" },                                        
                         },
-                    "escoger opción", new { @class = "form-control" })
- 
+                   "escoger grado", new { @class = "form-control" })
+                </div>
+                <div class="editor-label">
+                    <h2>Materia</h2>
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("Materia",
+                        new[]
+                        {
+                            new SelectListItem{ Value = "espanol", Text = "Español" },
+                            new SelectListItem{ Value = "ciencias", Text = "Ciencias" },
+                            new SelectListItem{ Value = "matematicas", Text = "Matemáticas" },
+                            new SelectListItem{ Value = "sociales", Text = "Estudios Sociales" },
+                        },
+                    "escoger materia", new { @class = "form-control" })
                 </div>
                 <br />
                 <input type="submit" class="btn btn-primary" value="Aceptar" />

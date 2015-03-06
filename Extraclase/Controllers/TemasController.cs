@@ -65,7 +65,7 @@ namespace Extraclase.Controllers
         }
 
         [HttpPost]
-        public ActionResult Seleccion(string grado)
+        public ActionResult Seleccion(string grado, string materia)
         {
             grado = Request["Grado"];
             if (grado != null)
