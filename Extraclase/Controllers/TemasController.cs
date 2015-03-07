@@ -19,10 +19,6 @@ namespace Extraclase.Controllers
         [Route("temas/{name:alpha}")]
         public ActionResult Index()   
         {
-            /*var usuario = Session["data"] as string;
-            //var usuario = TempData["data"] as string;
-            if (usuario == "x")*/
-
             if(validar_usuario() == true)
             {
                 //Session.Remove("data"); 
@@ -50,19 +46,17 @@ namespace Extraclase.Controllers
                   /*x=> x.Lists.Include(l => l.Title)
                  .Where(l => l.Title != String.Empty && l.InternalName != String.Empty)
                   or
-
                   x=> x.Lists.Include(l => l.Title)
                  .Where(l => l.Title != String.Empty)
                  .Where(l => l.InternalName != String.Empty)*/
-
                 // @Html.DropDownList("Exemplo",new SelectList(listItems,"Value","Text"))
                 //List<Usuario> gabrieles = contexto.Usuarios.Where(u => u.nombre == "Gabriel");
                 //var grados = db.Temas.Select(u => u.Grado);
-                var grados = new List<string>{"1","2","3","4","5","6"};
-
                 //var materia = db.Temas.Select(u => u.Materia);
                 //var materia = db.Temas.ToList();
                 //ViewBag.list = materia; //db.Temas.ToList();
+
+                var grados = new List<string>{"1","2","3","4","5","6"};         
                 ViewBag.grados = grados;
                 ViewBag.Message = "";
                 ViewBag.Temas = "";
