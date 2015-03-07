@@ -65,6 +65,7 @@ namespace Extraclase.Controllers
                 //ViewBag.list = materia; //db.Temas.ToList();
                 ViewBag.grados = grados;
                 ViewBag.Message = "";
+                ViewBag.Temas = "";
                 return View(db.Temas.ToList());
             }
             else
@@ -89,7 +90,7 @@ namespace Extraclase.Controllers
                 else
                 {
                     List<Temas> temas = db.Temas.Where(u => u.Grado == grado).Where(u => u.Materia == materia).ToList();
-                    ViewBag.Message = "Correct";
+                    ViewBag.Temas = temas;
                     return View();
                 }
             }
@@ -99,16 +100,23 @@ namespace Extraclase.Controllers
             }
         }
 
-        /*[HttpPost]
-        public ActionResult Seleccion(Models.Temas tema)
+        public ActionResult ListaTemas(List<Temas> pTemas)
         {
-            if (ModelState.IsValid)
+            //var tem = pTemas[0].Materia.ToString();
+            var usuario = Session["data"] as string;
+
+
+
+            if (usuario != null)
             {
-                
+
+                return View();
             }
-            ViewBag.Message = "Incorrect";
-            return View();
-        }*/
+            else
+            {
+                return RedirectToAction("Denegado_permiso");
+            }
+        }
 
         // GET: Temas/Details/5
         public ActionResult Details(int? id)

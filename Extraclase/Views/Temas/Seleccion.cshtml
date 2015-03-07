@@ -1,4 +1,4 @@
-﻿@model List<Extraclase.Models.Temas>
+﻿@model IEnumerable<Extraclase.Models.Temas>
 
 
 @{
@@ -48,6 +48,21 @@
                 <br />
                 <input type="submit" class="btn btn-primary" value="Aceptar" />
             </fieldset>
+
+            <table class="table">
+                <br />
+                @foreach (var item in ViewBag.Temas)
+                {
+                    <tr>
+                        <td>
+                            @item.Tema
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+
             <img src="~/fonts/Software-Solutions.png" alt="Sample Image" width="300px" />
         </div>
     </div>
