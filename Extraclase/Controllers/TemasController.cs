@@ -85,6 +85,7 @@ namespace Extraclase.Controllers
                 if (grado == "" || materia == "")
                 {
                     ViewBag.Message = "Incorrect";
+                    ViewBag.Temas = "";
                     return View();
                 }
                 else

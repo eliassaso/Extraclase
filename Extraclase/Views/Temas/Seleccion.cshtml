@@ -14,7 +14,7 @@
             <fieldset>
                 <legend>Seleccionar nivel</legend>
                 <div class="editor-label">
-                    <h2>Grado</h2>
+                    <h4>Grado</h4>
                 </div>
                 <div class="editor-field">
                    @Html.DropDownList("Grado",
@@ -30,7 +30,7 @@
                    "escoger grado", new { @class = "form-control" })
                 </div>
                 <div class="editor-label">
-                    <h2>Materia</h2>
+                    <h4>Materia</h4>
                 </div>
                 <div class="editor-field">
                     @Html.DropDownList("Materia",
@@ -44,7 +44,7 @@
                     "escoger materia", new { @class = "form-control" })
                 </div>
                 <br />
-                <h2>@ViewBag.Message</h2>
+                <h4>@ViewBag.Message</h4>
                 <br />
                 <input type="submit" class="btn btn-primary" value="Aceptar" />
             </fieldset>
@@ -55,7 +55,8 @@
                 {
                     <tr>
                         <td>
-                            @item.Tema
+                            @item.Tema  
+                            @Html.ActionLink(" | Ver", "Edit", new { id = item.ID }) 
                         </td>
                     </tr>
                 }
