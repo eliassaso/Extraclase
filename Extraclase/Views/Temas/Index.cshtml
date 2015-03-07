@@ -22,6 +22,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Tema)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contenido)
+        </th>
         <th></th>
     </tr>
 
@@ -35,6 +38,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Tema)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contenido)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

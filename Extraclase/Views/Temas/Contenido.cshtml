@@ -11,10 +11,16 @@
             @Html.DisplayFor(model => model.Grado, new { htmlAttributes = new { @class = "form-control" } })        
         <hr />
             @Html.DisplayFor(model => model.Tema, new { htmlAttributes = new { @class = "form-control" } }) 
+        <br />
+        <br />
+        @Html.DisplayFor(model => model.Contenido, new { htmlAttributes = new { @class = "form-control" } })
+
+        
 
     </div>
 
 
 <div>
+    <br />
     @Html.ActionLink("Back to List", "Seleccion")
 </div>

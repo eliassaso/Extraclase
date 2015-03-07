@@ -157,7 +157,7 @@ namespace Extraclase.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Materia,Grado,Tema")] Temas temas)
+        public ActionResult Create([Bind(Include = "ID,Materia,Grado,Tema,Contenido")] Temas temas)
         {
             if (ModelState.IsValid)
             {
@@ -196,7 +196,7 @@ namespace Extraclase.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Materia,Grado,Tema")] Temas temas)
+        public ActionResult Edit([Bind(Include = "ID,Materia,Grado,Tema,Contenido")] Temas temas)
         {
             if (ModelState.IsValid)
             {

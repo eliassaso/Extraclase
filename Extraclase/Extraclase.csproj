@@ -170,9 +170,9 @@
     <Compile Include="Migrations\201502221459524_InitialCreate.Designer.cs">
       <DependentUpon>201502221459524_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503061804013_modifyThemes.cs" />
-    <Compile Include="Migrations\201503061804013_modifyThemes.Designer.cs">
-      <DependentUpon>201503061804013_modifyThemes.cs</DependentUpon>
+    <Compile Include="Migrations\201503071604427_addContenido.cs" />
+    <Compile Include="Migrations\201503071604427_addContenido.Designer.cs">
+      <DependentUpon>201503071604427_addContenido.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -274,8 +274,8 @@
     <EmbeddedResource Include="Migrations\201502221459524_InitialCreate.resx">
       <DependentUpon>201502221459524_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503061804013_modifyThemes.resx">
-      <DependentUpon>201503061804013_modifyThemes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503071604427_addContenido.resx">
+      <DependentUpon>201503071604427_addContenido.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

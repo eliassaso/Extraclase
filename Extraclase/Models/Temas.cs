@@ -27,6 +27,8 @@ namespace Extraclase.Models
             [Display(Name = "Tema")]
             public string Tema { get; set; }
 
+            public string Contenido { get; set; }
+
             /*[DisplayName("Empleado")]
             public SelectList EmployeeList { get; set; }
             public List<int> EmployeesSelected { get; set; }*/

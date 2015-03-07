@@ -7,13 +7,13 @@ namespace Extraclase.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class modifyThemes : IMigrationMetadata
+    public sealed partial class addContenido : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(modifyThemes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addContenido));
         
         string IMigrationMetadata.Id
         {
-            get { return "201503061804013_modifyThemes"; }
+            get { return "201503071604427_addContenido"; }
         }
         
         string IMigrationMetadata.Source
