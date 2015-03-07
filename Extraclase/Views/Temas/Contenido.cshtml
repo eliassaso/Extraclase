@@ -3,15 +3,17 @@
 @{
     ViewBag.Title = "Contenido";
 }
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
 
-<h2>Contenido</h2>
+<h2 class="text-primary">Contenido</h2>
 
-    <div class="form-horizontal">
-        <h4>@Html.DisplayFor(model => model.Materia, new { htmlAttributes = new { @class = "form-control" } })</h4>
+    <div>
+        @Html.DisplayFor(model => model.Materia, new { @class = "label-success" })
+        <br /> Nivel: 
             @Html.DisplayFor(model => model.Grado, new { htmlAttributes = new { @class = "form-control" } })        
         <hr />
-            @Html.DisplayFor(model => model.Tema, new { htmlAttributes = new { @class = "form-control" } }) 
-        <br />
+        <h4 class="text-danger">@Html.DisplayFor(model => model.Tema, new { htmlAttributes = new { @class = "label-primary" } }) </h4>
         <br />
         @Html.DisplayFor(model => model.Contenido, new { htmlAttributes = new { @class = "form-control" } })
 
@@ -24,3 +26,6 @@
     <br />
     @Html.ActionLink("Back to List", "Seleccion")
 </div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
