@@ -258,6 +258,7 @@
     <Content Include="Views\Usuarios\Denegado_permiso.cshtml" />
     <Content Include="Views\Temas\Seleccion.cshtml" />
     <Content Include="Views\Temas\Temas.cshtml" />
+    <Content Include="Views\Temas\Contenido.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

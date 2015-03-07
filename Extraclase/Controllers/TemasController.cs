@@ -101,17 +101,15 @@ namespace Extraclase.Controllers
             }
         }
 
-        public ActionResult ListaTemas(List<Temas> pTemas)
+        // GET: Temas/Contenido/5
+        public ActionResult Contenido(int? Id)
         {
             //var tem = pTemas[0].Materia.ToString();
             var usuario = Session["data"] as string;
-
-
-
             if (usuario != null)
             {
-
-                return View();
+                Temas tem = db.Temas.Find(Id);
+                return View(tem);
             }
             else
             {

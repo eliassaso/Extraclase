@@ -1,0 +1,26 @@
+﻿@model Extraclase.Models.Temas
+
+@{
+    ViewBag.Title = "Contenido";
+}
+
+<h2>Contenido</h2>
+
+    <div class="form-horizontal">
+        <h4>@Html.DisplayFor(model => model.Materia, new { htmlAttributes = new { @class = "form-control" } })</h4>
+            @Html.DisplayFor(model => model.Grado, new { htmlAttributes = new { @class = "form-control" } })        
+        <hr />
+
+        <div class="form-group">
+            @Html.DisplayFor(model => model.Tema, new { htmlAttributes = new { @class = "form-control" } }) 
+        </div>
+    </div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
